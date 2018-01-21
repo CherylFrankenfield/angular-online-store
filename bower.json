@@ -1,0 +1,20 @@
+{
+  "name": "angular-online-store",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Cheryl Frankenfield <cherylfrankenfield@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}
