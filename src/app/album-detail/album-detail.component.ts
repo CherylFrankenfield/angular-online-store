@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Album } from '../album.model';
 import { AlbumService } from '../album.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-album-detail',
@@ -11,16 +12,15 @@ import { AlbumService } from '../album.service';
   providers: [AlbumService]
 })
 export class AlbumDetailComponent implements OnInit {
-  // albumId: number = null;
-  albumId: number;
-  albumToDisplay: Album;
+  albumId: string;
+  albumToDisplay;
 
 //any instance of AlbumDetailComponent will have route/location properties that can be accessed w this.route and this.location.
   constructor(private route: ActivatedRoute, private location: Location, private albumService: AlbumService) {}
 //loops through and temporarily assigns each item parameter the variable name urlParameters. Uses Fat arrow notation.
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-     this.albumId = parseInt(urlParameters['id']);
+     this.albumId = urlParameters['id'];
    });
    this.albumToDisplay = this.albumService.getAlbumById(this.albumId);
   }
