@@ -13,12 +13,12 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class MarketplaceComponent implements OnInit {
   // albums: Album[];
   albums: FirebaseListObservable<any[]>;
+  currentRoute: string = this.router.url;
 //private Router object named router. This ensures that every instance of MarketplaceComponent has a Router object available when it is instantiated. this ensures all new instances of MarketplaceComponent also have an instance of AlbumService, accessible by calling this.albumService
   constructor(private router: Router, private albumService: AlbumService) {}
 
   ngOnInit(){
     this.albums = this.albumService.getAlbums();
-    console.log(this.router.url);
   }
 
   goToDetailPage(clickedAlbum) {
